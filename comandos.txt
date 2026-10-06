@@ -1,0 +1,7 @@
+git clone ENDERECO_DO_SEU_REPOSITORIO
+cd SUAPASTA
+mkdir sqlalchemy_uv //cria uma pasta para o alchemy
+cd sqlalchemy_uv
+uv init 01_basico // cria projeto uv
+cd 01_basico
+

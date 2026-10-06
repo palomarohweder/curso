@@ -1,0 +1,17 @@
+uv init .
+uv add sqlalchemy
+uv add pymysql
+uv run receitas.py
+
+
+
+
+
+
+uv init project
+cd project
+uv add mysql-connector-python
+uv add sqlalchemy
+uv add pymysql
+uv sync
+uv run receitas.py
