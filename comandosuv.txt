@@ -1,9 +1,11 @@
 uv init .
 uv add sqlalchemy
 uv add pymysql
-uv run receitas.py
+uv run professor_turma.py
 
 
+como executar^^^^^^^^^^^^
+precisa configurar as variaveis de ambiente no .env antees dessa sequencia
 
 
 

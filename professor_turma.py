@@ -10,10 +10,10 @@ class Professor(Base): #Criando a classe professor
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     nome: Mapped[str] = mapped_column(String(250))
     telefone: Mapped[str] = mapped_column(String(13))
-    email: Mapped[str] = mapped_column(String(250))
+    email: Mapped[str] = mapped_column(String(250), unique=True)
     materia: Mapped[str] = mapped_column(String(50))
     # Relacionando com as turmas
-    turmas: Mapped[List["Turma"]] = relationship(back_populates="professor")
+    turmas: Mapped[List["Turma"]] = relationship(back_populates="professor", cascade="all, delete-orphan")
 
 class Turma(Base):
     __tablename__ = "tabela_turma"
@@ -44,8 +44,9 @@ def main(): #Código principal
     engine = escolher_conexao()
     session = Session(engine)
 
+    banco = "MySQL" if engine.url.get_backend_name() == "mysql" else "SQLite"
     while True:
-        print("\n================ MENU PRINCIPAL ================")
+        print(f"\n================ MENU PRINCIPAL (usando: {banco}) ================")
         print("1 - Cadastrar Professor")
         print("2 - Cadastrar Turma")
         print("3 - Listar Professores e Turmas")
